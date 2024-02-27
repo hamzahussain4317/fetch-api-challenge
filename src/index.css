@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Buttons {
+  
+  width: 100%;
+  margin-top: 0.2rem;
+}
+
+.User,
+.Post,
+.Comment {
+  width: 33.33%;
+  padding: 1rem;
+  
+}
+
+.User:hover {
+  background-color: black;
+  color: white;
+}
+
+.Post:hover {
+  background-color: black;
+  color: white;
+}
+
+.Comment:hover {
+  background-color: black;
+  color: white;
+  /* background-color: aliceblue; */
+}

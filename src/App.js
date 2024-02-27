@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import DataRender from './DataRender';
 
 function App() {
+  const [items, setItems] = useState([])
+  const [type, setType] = useState('users');
+  const apiUrl = 'https://jsonplaceholder.typicode.com/';
+
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch(`${apiUrl}${type}`)
+        const listItems = await response.json();
+        console.log(listItems)
+        setItems(listItems)
+
+      }
+      catch (err) {
+        console.log(err)
+      }
+    }
+
+     await fetchItems();
+
+
+
+  }, [type])
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {<DataRender
+        setType={setType}
+        items={items} />}
     </div>
   );
 }
