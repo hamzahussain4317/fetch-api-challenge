@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import DataRender from './DataRender';
-
+import Ulist from './Ulist';
+import Table from './Table';
 function App() {
   const [items, setItems] = useState([])
   const [type, setType] = useState('users');
@@ -32,8 +33,11 @@ function App() {
   return (
     <div className="App">
       {<DataRender
-        setType={setType}
-        items={items} />}
+        setType={setType} />}
+      {/* <Ulist
+        items={items} /> */}
+      <Table
+        items={items} />
     </div>
   );
 }

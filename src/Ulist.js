@@ -1,6 +1,11 @@
-const Ulist = ({ item }) => {
+import Listitems from './Listitems'
+const Ulist = ({ items }) => {
     return (
-        <li>{item}</li>
+        <ul>
+            {items.map(item => {
+                return <Listitems key={item.id} item={item} />
+            })}
+        </ul >
     )
 }
 export default Ulist
